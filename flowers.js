@@ -10,52 +10,34 @@ const flowers = [
         id: 2,
         color: "Red",
         species: "Tulip",
-        price: 0.85
+        price: 1.10
     },
 
 ]
-
-
-function addFlower(sunflower) {
-
-    const addFlowerToInventory = (flowerObject) => {
-        const lastIndex = flowers.length -1
-        const currentLastFlower = flowers[lastIndex]
-        const maxId = currentLastFlower.id
-        const idForNewFlower = maxId + 1
-        flowerObject.id = idForNewFlower
-        flowers.push(flowerObject)
-    }
-    
-    const flowerThree = {
-        id: 3,
-        color: "yellow",
-        species: "sunflower",
-        price: 1.50
-    }
-
-    addFlowerToInventory(flowerThree)
-    for (const flower of flowers) {
-        console.log(`The ${flower.color} ${flower.species} costs ${flower.price}.`)
-    }
-    console.log(flowers)
-
-    const flowerToFind = 2
-    for (const flower of flowers) {
-        if (flower.id === flowerToFind) {
-            flower.price = flower.price + 1.50
-            console.log(`The ${flower.id} ${flower.color} ${flower.species} costs ${flower.price}.`)
-        }
-    }
-    
+const addFlower = (flowerObject) => {
+    const lastIndex = flowers.length - 1
+    const currentLastFlower = flowers[lastIndex]
+    const maxId = currentLastFlower.id
+    const idForNewFlower = maxId + 1
+    flowerObject.id = idForNewFlower
+    flowers.push(flowerObject)
 }
 
+const flowerThree = {
+
+    color: "yellow",
+    species: "sunflower",
+    price: 0.99
+}
+
+addFlower(flowerThree)
+console.log(flowers)
 
 const findExpensiveFlowers = () => {
     const expensiveFlowers = []  // Do not change this code
 
-    for (const flower of flowers){
-        if (flower.price >= 1.00) {flower.price = flower.price + 1.00}
+    for (const flower of flowers) {
+        if (flower.price >= 1.00) { expensiveFlowers.push(flower) }
 
     }
 
@@ -65,10 +47,11 @@ const findExpensiveFlowers = () => {
         greater than or equal to 1.00, it should be
         added to the `expensiveFlowers` array.
     */
-     return expensiveFlowers  // Do not change this code
+    console.log(expensiveFlowers)
+    return expensiveFlowers  // Do not change this code
 }
- 
- 
+findExpensiveFlowers()
+
 
 
 
